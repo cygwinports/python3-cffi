@@ -1,0 +1,11 @@
+--- origsrc/cffi-0.9.2/cffi/verifier.py	2015-03-13 04:02:09.000000000 -0500
++++ src/cffi-0.9.2/cffi/verifier.py	2015-05-05 22:58:45.571477600 -0500
+@@ -286,6 +286,8 @@ def _get_so_suffixes():
+         # bah, no C_EXTENSION available.  Occurs on pypy without cpyext
+         if sys.platform == 'win32':
+             suffixes = [".pyd"]
++        elif sys.platform == 'cygwin':
++            suffixes = [".dll"]
+         else:
+             suffixes = [".so"]
+ 
